@@ -6,5 +6,6 @@ public void setup()
 public void draw() 
 {
   background(35, 206, 200);
+  Spaceship s = new Spaceship();
+  s.show();
 }
-
