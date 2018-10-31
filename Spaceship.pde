@@ -1,5 +1,7 @@
 class Spaceship extends Floater  
 {   
+    private int turning;
+    private boolean accelerating;
     public Spaceship(){
     	corners = 5;
     	xCorners = new int[corners];

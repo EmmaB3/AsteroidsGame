@@ -11,5 +11,4 @@ public void draw()
 }
 
 public void keyPressed(){
-
 }
