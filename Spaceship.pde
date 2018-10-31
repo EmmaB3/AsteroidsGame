@@ -27,4 +27,6 @@ class Spaceship extends Floater
     public double getDirectionY(){return myDirectionY;}
     public void setPointDirection(int degrees){myPointDirection = degrees;}
     public double getPointDirection(){return myPointDirection;}
+    public void setAccelerating(boolean val){accelerating = val;}
+    public boolean getAccelerating(){return accelerating;}
 }
