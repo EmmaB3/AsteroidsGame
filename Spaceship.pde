@@ -6,15 +6,13 @@ class Spaceship extends Floater
     	corners = 5;
     	xCorners = new int[corners];
     	xCorners[0]=0; xCorners[1] = 40; xCorners[2] = 70;xCorners[3] = 40; xCorners[4] = 0;
-    	//{210,250,280,250,210}; 210 = 0
     	yCorners = new int[corners];
     	yCorners[0] = 10;yCorners[1] =40;yCorners[2] =20;yCorners[3] =0;yCorners[4] = 30;
-    	//{240,270,250,230,260}; 230
     	myColor = #f7cb47;
     	myCenterX = 250;
     	myCenterY = 250;
-    	myDirectionX = 10;
-    	myDirectionY = 10;
+    	myDirectionX = 0;
+    	myDirectionY = 0;
     	myPointDirection = 0;
     }
     public void setX (int x){myCenterX = x;}
@@ -29,4 +27,6 @@ class Spaceship extends Floater
     public double getPointDirection(){return myPointDirection;}
     public void setAccelerating(boolean val){accelerating = val;}
     public boolean getAccelerating(){return accelerating;}
+    public void setTurning(int t){turning = t;}
+    public int getTurning(){return turning;}
 }
