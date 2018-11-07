@@ -1,20 +1,27 @@
 //your variable declarations here
 Spaceship ship = new Spaceship();
-Star[] stars = new Star[50];
+Star[] bubbles = new Star[50];
+Asteroid[] urchins = new Asteroid[15];
 public void setup() 
 {
   size(500,500);  
-  for(int a = 0; a < stars.length; a ++){
-    stars[a] = new Star();
+  for(int a = 0; a < bubbles.length; a ++){
+    bubbles[a] = new Star();
+  }
+  for(int a = 0; a < urchins.length; a ++){
+    urchins[a] = new Asteroid();
   }
 }
 
 public void draw() 
 {
 	background(18, 143, 226);
-  for (int a = 0; a < stars.length; a ++){
-    stars[a].show();
-    stars[a].move();
+  for (int a = 0; a < bubbles.length; a ++){
+    bubbles[a].show();
+    bubbles[a].move();
+  }
+  for(int a = 0; a < urchins.length; a ++){
+    urchins[a].show();
   }
   	ship.show();
 	if(ship.getAccelerating() /*&& Math.sqrt(Math.pow(ship.getDirectionX(),2) + Math.pow(ship.getDirectionY(), 2)) < 20*/){
