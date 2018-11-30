@@ -1,15 +1,16 @@
 //your variable declarations here
 Spaceship ship = new Spaceship();
 Star[] bubbles = new Star[50];
-Asteroid[] urchins = new Asteroid[15];
+ArrayList<Asteroid> urchins = new ArrayList<Asteroid>();
+//Asteroid[] urchins = new Asteroid[15];
 public void setup() 
 {
   size(500,500);  
   for(int a = 0; a < bubbles.length; a ++){
     bubbles[a] = new Star();
   }
-  for(int a = 0; a < urchins.length; a ++){
-    urchins[a] = new Asteroid();
+  for(int a = 0; a < 15; a ++){
+    urchins.add(new Asteroid());
   }
 }
 
@@ -20,8 +21,8 @@ public void draw()
     bubbles[a].show();
     bubbles[a].move();
   }
-  for(int a = 0; a < urchins.length; a ++){
-    urchins[a].show();
+  for(int a = 0; a < urchins.size(); a ++){
+    urchins.get(a).show();
   }
   	ship.show();
 	if(ship.getAccelerating() /*&& Math.sqrt(Math.pow(ship.getDirectionX(),2) + Math.pow(ship.getDirectionY(), 2)) < 20*/){
