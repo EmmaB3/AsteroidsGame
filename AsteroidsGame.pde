@@ -29,7 +29,7 @@ public void draw()
 		ship.accelerate(0.25);
 		//OH WAIT BUT NOW IT CAN'T TURN CRAPP
 	}
-	ship.turn(1 * (ship.getTurning() < 0? -1 : 1));
+	ship.turn(1 * (ship.getTurning() < 0? -1 : ship.getTurning() > 0 ? 1 : 0));
 	ship.move();
 }
 
