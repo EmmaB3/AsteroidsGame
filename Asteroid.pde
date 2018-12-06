@@ -1,5 +1,6 @@
 class Asteroid extends Floater{
-  private int bodyWidth, rotSpeed;
+  private int bodyWidth;
+  private double rotSpeed;
   public Asteroid(){
     corners = (int)(Math.random()*10) + 15;
     corners *= 2;
@@ -15,7 +16,7 @@ class Asteroid extends Floater{
         xCorners[a + b] = (int)(Math.cos(spikeAngle)*lengthMultiplier);
         yCorners[a + b] = (int)(Math.sin(spikeAngle) * lengthMultiplier);
       }
-      rotSpeed = (int)(Math.random() * 3) - 1;
+      rotSpeed = (Math.random() * 3) - 1;
     }
     myCenterX = (int)(Math.random()*501);
     myCenterY = (int)(Math.random()*501);
