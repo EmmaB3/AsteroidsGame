@@ -1,5 +1,5 @@
 class Asteroid extends Floater{
-  private int bodyWidth;
+  private int bodyWidth, rotSpeed;
   public Asteroid(){
     corners = (int)(Math.random()*10) + 15;
     corners *= 2;
@@ -15,15 +15,16 @@ class Asteroid extends Floater{
         xCorners[a + b] = (int)(Math.cos(spikeAngle)*lengthMultiplier);
         yCorners[a + b] = (int)(Math.sin(spikeAngle) * lengthMultiplier);
       }
+      rotSpeed = (int)(Math.random() * 3) - 1;
     }
     myCenterX = (int)(Math.random()*501);
     myCenterY = (int)(Math.random()*501);
     bodyWidth = (int)(Math.random()*25) + 10;
     ellipse((float)myCenterX,(float)myCenterY,bodyWidth,bodyWidth);
     myColor = #60278c;
-    myDirectionX = 0;
-    myDirectionY = 0;
-    myPointDirection = 0;
+    myDirectionX = (Math.random() * 3) - 1;
+    myDirectionY = (Math.random()*3) - 1;
+    myPointDirection = Math.random()*360;
   }
     public void setX (int x){myCenterX = x;}
     public int getX(){return (int)myCenterX;}
@@ -38,5 +39,9 @@ class Asteroid extends Floater{
     public void show(){
       super.show();
       ellipse((float)myCenterX,(float)myCenterY,bodyWidth,bodyWidth);
+    }
+    public void move(){
+      super.move();
+      turn(rotSpeed);
     }
 }

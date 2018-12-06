@@ -23,6 +23,7 @@ public void draw()
   }
   for(int a = 0; a < urchins.size(); a ++){
     urchins.get(a).show();
+    urchins.get(a).move();
   }
   	ship.show();
 	if(ship.getAccelerating() /*&& Math.sqrt(Math.pow(ship.getDirectionX(),2) + Math.pow(ship.getDirectionY(), 2)) < 20*/){
