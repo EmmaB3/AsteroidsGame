@@ -29,4 +29,10 @@ class Spaceship extends Floater
     public boolean getAccelerating(){return accelerating;}
     public void setTurning(int t){turning = t;}
     public int getTurning(){return turning;}
+    public void setXSpeed(double multiplier){
+     // setDirectionX(multiplier * 
+    }
+    public void setYSpeed(double multiplier){
+    
+    }
 }
