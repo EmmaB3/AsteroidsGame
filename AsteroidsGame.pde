@@ -24,15 +24,18 @@ public void draw()
   for(int a = 0; a < urchins.size(); a ++){
     urchins.get(a).show();
     urchins.get(a).move();
+    if(ship.getX() >= urchins.get(a).getX() - 15 && ship.getX() <= urchins.get(a).getX() + 15 && ship.getY() <= urchins.get(a).getY() + 15 && ship.getX() >= urchins.get(a).getY() - 15){
+      urchins.remove(a);
+    }
   }
   	ship.show();
 	if(ship.getAccelerating() /*&& Math.sqrt(Math.pow(ship.getDirectionX(),2) + Math.pow(ship.getDirectionY(), 2)) < 20*/){
 		ship.accelerate(0.25);
 		//OH WAIT BUT NOW IT CAN'T TURN CRAPP
-	}else if(ship.getDirectionX() > 0 || ship.getDirectionY() > 0){
+	}/*else if(ship.getDirectionX() > 0 || ship.getDirectionY() > 0){
     ship.setDirectionX(Math.abs(ship.getDirectionX()) > 0.15*Math.cos(Math.toRadians(ship.getPointDirection()))? ship.getDirectionX() - 0.15*Math.cos(Math.toRadians(ship.getPointDirection())) : 0);
     ship.setDirectionY(Math.abs(ship.getDirectionY()) > 0.15*Math.sin(Math.toRadians(ship.getPointDirection()))? ship.getDirectionY() - 0.15*Math.sin(Math.toRadians(ship.getPointDirection())) : 0);
-  }
+  }*/
 	ship.turn(1 * (ship.getTurning() < 0? -1 : ship.getTurning() > 0 ? 1 : 0));
 	ship.move();
 }
