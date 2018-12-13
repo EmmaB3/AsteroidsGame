@@ -29,10 +29,12 @@ class Spaceship extends Floater
     public boolean getAccelerating(){return accelerating;}
     public void setTurning(int t){turning = t;}
     public int getTurning(){return turning;}
-    public void setXSpeed(double multiplier){
-     // setDirectionX(multiplier * 
+    public double getVelocityDirection(){
+      return Math.atan(myDirectionY/myDirectionX);
     }
-    public void setYSpeed(double multiplier){
-    
+    public void decelerate(double multiplier){
+      double angle = getVelocityDirection();
+       myDirectionX = Math.abs(myDirectionX) > Math.abs(multiplier*Math.cos(angle))? myDirectionX - sign(myDirectionX)*multiplier*Math.abs(Math.cos(angle)) : 0;
+       myDirectionY = Math.abs(myDirectionY) > Math.abs(multiplier*Math.sin(angle))? myDirectionY - sign(myDirectionY)*multiplier*Math.abs(Math.sin(angle)) : 0;
     }
 }

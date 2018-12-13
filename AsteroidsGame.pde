@@ -32,11 +32,10 @@ public void draw()
 	if(ship.getAccelerating() /*&& Math.sqrt(Math.pow(ship.getDirectionX(),2) + Math.pow(ship.getDirectionY(), 2)) < 20*/){
 		ship.accelerate(0.25);
 		//OH WAIT BUT NOW IT CAN'T TURN CRAPP
-	}else if(ship.getDirectionX() > 0 || ship.getDirectionY() > 0){
-    ship.setDirectionX(Math.abs(ship.getDirectionX()) > 0.15*Math.cos(Math.toRadians(ship.getPointDirection()))? ship.getDirectionX() - 0.15*Math.cos(Math.toRadians(ship.getPointDirection())) : 0);
-    ship.setDirectionY(Math.abs(ship.getDirectionY()) > 0.15*Math.sin(Math.toRadians(ship.getPointDirection()))? ship.getDirectionY() - 0.15*Math.sin(Math.toRadians(ship.getPointDirection())) : 0);
+	}else if(Math.abs(ship.getDirectionX()) > 0 || Math.abs(ship.getDirectionY()) > 0){
+     ship.decelerate(0.15);
   }
-	ship.turn(1 * (ship.getTurning() < 0? -1 : ship.getTurning() > 0 ? 1 : 0));
+	ship.turn(1 * sign(ship.getTurning()));
 	ship.move();
 }
 
@@ -66,4 +65,8 @@ public void keyReleased(){
 	if(keyCode == 65 || keyCode == 68){
 		ship.setTurning(0);
 	}
+}
+
+public int sign(double n){
+  return n < 0? -1 : n > 0 ? 1 : 0;
 }
