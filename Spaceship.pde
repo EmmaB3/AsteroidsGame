@@ -5,9 +5,9 @@ class Spaceship extends Floater
     public Spaceship(){
     	corners = 5;
     	xCorners = new int[corners];
-    	xCorners[0]=0; xCorners[1] = 40; xCorners[2] = 70;xCorners[3] = 40; xCorners[4] = 0;
+    	xCorners[0]=-40; xCorners[1] = 0; xCorners[2] = 30;xCorners[3] = 0; xCorners[4] = -40;
     	yCorners = new int[corners];
-    	yCorners[0] = 10;yCorners[1] =40;yCorners[2] =20;yCorners[3] =0;yCorners[4] = 30;
+    	yCorners[0] = -10;yCorners[1] =20;yCorners[2] =0;yCorners[3] =-20;yCorners[4] = 10;
     	myColor = #f7cb47;
     	myCenterX = 250;
     	myCenterY = 250;
@@ -29,11 +29,8 @@ class Spaceship extends Floater
     public boolean getAccelerating(){return accelerating;}
     public void setTurning(int t){turning = t;}
     public int getTurning(){return turning;}
-    public double getVelocityDirection(){
-      return Math.atan(myDirectionY/myDirectionX);
-    }
     public void decelerate(double multiplier){
-      double angle = getVelocityDirection();
+      double angle = Math.atan(myDirectionY/myDirectionX);
        myDirectionX = Math.abs(myDirectionX) > Math.abs(multiplier*Math.cos(angle))? myDirectionX - sign(myDirectionX)*multiplier*Math.abs(Math.cos(angle)) : 0;
        myDirectionY = Math.abs(myDirectionY) > Math.abs(multiplier*Math.sin(angle))? myDirectionY - sign(myDirectionY)*multiplier*Math.abs(Math.sin(angle)) : 0;
     }
