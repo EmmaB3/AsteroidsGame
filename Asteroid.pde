@@ -6,8 +6,6 @@ class Asteroid extends Floater{
     corners *= 2;
     xCorners = new int[corners];
     yCorners = new int[corners];
-    //int spikeLength =(int)(Math.random() * 25) + 25;
-    //int bodyWidth = (int)(Math.random() * 25);
     for(int a = 0; a < corners; a += 2){
       int spikeLength = (int)(Math.random() * 25) + 25;
       for(int b = 0; b < 2; b ++){

@@ -9,8 +9,8 @@ class Bullet extends Floater{
      myCenterX = source.getX();
      myCenterY = source.getY(); 
      myPointDirection = ship.getPointDirection();
-     myDirectionX = Math.cos(myPointDirection*Math.PI/180) * 10;
-     myDirectionY = Math.sin(myPointDirection*Math.PI/180) * 10;
+     myDirectionX = Math.cos(myPointDirection*Math.PI/180) * 7;
+     myDirectionY = Math.sin(myPointDirection*Math.PI/180) * 7;
   }
   
   public void setX(int x){myCenterX = x;};  
