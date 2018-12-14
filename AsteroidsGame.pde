@@ -2,6 +2,7 @@
 Spaceship ship = new Spaceship();
 Star[] bubbles = new Star[50];
 ArrayList<Asteroid> urchins = new ArrayList<Asteroid>();
+ArrayList<Bullet> bullets = new ArrayList<Bullet>();
 //Asteroid[] urchins = new Asteroid[15];
 public void setup() 
 {
@@ -24,8 +25,20 @@ public void draw()
   for(int a = 0; a < urchins.size(); a ++){
     urchins.get(a).show();
     urchins.get(a).move();
-    if(ship.getX() >= urchins.get(a).getX() - 15 && ship.getX() <= urchins.get(a).getX() + 15 && ship.getY() <= urchins.get(a).getY() + 15 && ship.getX() >= urchins.get(a).getY() - 15){
-      urchins.remove(a);
+  }
+  for(int a = bullets.size() - 1; a >= 0; a --){
+    bullets.get(a).move();
+    bullets.get(a).show();
+    if(bullets.get(a).getX() <= 0 || bullets.get(a).getX() >= 500 || bullets.get(a).getY() <= 0 || bullets.get(a).getY() >= 500){
+      bullets.remove(a);
+    }else{
+        for(int b = urchins.size() -1; b >= 0; b --){
+           if(bullets.size() > 0 && dist(bullets.get(a).getX(), bullets.get(a).getY(), urchins.get(b).getX(), urchins.get(b).getY()) <= 15){
+             bullets.remove(a);
+             urchins.remove(b);
+             break;
+           }
+        }
     }
   }
   	ship.show();
@@ -34,7 +47,7 @@ public void draw()
 	}else if(Math.abs(ship.getDirectionX()) > 0 || Math.abs(ship.getDirectionY()) > 0){
      ship.decelerate(0.25);
   }
-	ship.turn(1 * sign(ship.getTurning()));
+	ship.turn(2 * sign(ship.getTurning()));
 	ship.move();
 }
 
@@ -55,6 +68,9 @@ public void keyPressed(){
 		ship.setDirectionX(0);
 		ship.setDirectionY(0);
 	}
+ if(keyCode == 32){
+   bullets.add(new Bullet(ship));
+  }
 }
 
 public void keyReleased(){
